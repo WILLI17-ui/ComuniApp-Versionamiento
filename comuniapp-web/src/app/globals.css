@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-verde-50: #eef8f1;
+  --color-verde-100: #ddf1e3;
+  --color-verde-200: #bde4c9;
+  --color-verde-300: #8fd6a2;
+  --color-verde-500: #3fa865;
+  --color-verde-600: #258a52;
+  --color-verde-700: #1e7a4c;
+  --color-verde-800: #165c39;
+  --color-texto: #1f2a24;
+  --color-texto-suave: #4d5c53;
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+}
+
+@layer components {
+  .btn-primario {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-verde-700 px-5 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-verde-800 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-verde-500 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-secundario {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-base font-semibold text-verde-800 ring-2 ring-verde-200 transition hover:bg-verde-50 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-verde-500 disabled:opacity-60;
+  }
+  .btn-peligro {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-700 px-5 py-3 text-base font-semibold text-white transition hover:bg-red-800 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-red-400 disabled:opacity-60;
+  }
+  .btn-whatsapp {
+    @apply inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-[#1DA851] px-6 py-3 text-lg font-bold text-white shadow-md transition hover:bg-[#178c43] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-verde-500;
+  }
+  .campo {
+    @apply block min-h-12 w-full rounded-xl border-2 border-verde-200 bg-white px-4 py-3 text-base text-texto placeholder:text-gray-400 focus:border-verde-600 focus:outline-none focus:ring-4 focus:ring-verde-100;
+  }
+  .campo-error {
+    @apply border-red-500 focus:border-red-600 focus:ring-red-100;
+  }
+  .etiqueta {
+    @apply mb-1.5 block text-base font-semibold text-texto;
+  }
+  .msg-error {
+    @apply mt-1.5 text-sm font-medium text-red-700;
+  }
+  .contenedor {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+}
