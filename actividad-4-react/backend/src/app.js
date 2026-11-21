@@ -22,8 +22,10 @@ app.get('/api/health', async (_req, res) => {
   try {
     await query('select 1');
     res.json({ estado: 'ok', baseDeDatos: 'conectada' });
-  } catch {
-    res.status(503).json({ estado: 'error', baseDeDatos: 'sin conexión' });
+  } catch (err) {
+    // El código (no el mensaje completo) ayuda a diagnosticar sin exponer datos sensibles.
+    console.error('[health]', err.code, err.message);
+    res.status(503).json({ estado: 'error', baseDeDatos: 'sin conexión', codigo: err.code ?? 'desconocido' });
   }
 });
 app.get('/api/categorias', (_req, res) => res.json(CATEGORIAS));
